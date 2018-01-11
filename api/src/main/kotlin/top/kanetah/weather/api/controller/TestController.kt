@@ -1,12 +1,10 @@
 package top.kanetah.weather.api.controller
 
+import org.apache.log4j.Logger
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import java.util.logging.Level
-import java.util.logging.LogRecord
-import java.util.logging.Logger
 import javax.websocket.server.PathParam
 
 /**
@@ -16,11 +14,11 @@ import javax.websocket.server.PathParam
 @RequestMapping(value = ["/test"])
 class TestController {
 
-    private val logger = Logger.getLogger("TestController")!!
+    private val logger = Logger.getLogger(TestController::class.java)
 
     @RequestMapping(method = [RequestMethod.GET])
     fun getTest(): List<Any> {
-        logger.log(LogRecord(Level.INFO, "get: /test"))
+        logger.info("get: /test")
         return listOf(
                 "nico",
                 "poi",
@@ -32,27 +30,27 @@ class TestController {
     fun insert(
             @RequestParam id: String
     ) {
-        logger.log(LogRecord(Level.INFO, "insert: /test"))
+        logger.info("insert: /test")
     }
 
     @RequestMapping(value = ["/{id}"], method = [RequestMethod.DELETE])
     fun delete(
             @PathParam("id") id: String
     ) {
-        logger.log(LogRecord(Level.INFO, "delete: /test by id $id"))
+        logger.info("delete: /test by id $id")
     }
 
     @RequestMapping(method = [RequestMethod.PUT])
     fun update(
             @RequestParam id: String
     ) {
-        logger.log(LogRecord(Level.INFO, "update: /test"))
+        logger.info("update: /test")
     }
 
-    @RequestMapping(value = ["/{id}"], method = [RequestMethod.DELETE])
+    @RequestMapping(value = ["/{id}"], method = [RequestMethod.GET])
     fun find(
             @PathParam("id") id: String
     ) {
-        logger.log(LogRecord(Level.INFO, "find: /test by id $id"))
+        logger.info("find: /test by id $id")
     }
 }
