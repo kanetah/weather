@@ -2163,6 +2163,10 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
+drilldown@^0.1.1:
+  version "0.1.1"
+  resolved "http://r.cnpmjs.org/drilldown/download/drilldown-0.1.1.tgz#45df69b775857ee5c69ee30485030e2220f883cf"
+
 duplexer2@^0.1.4:
   version "0.1.4"
   resolved "http://r.cnpmjs.org/duplexer2/download/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -3181,6 +3185,10 @@ he@1.1.x:
   version "1.1.1"
   resolved "http://r.cnpmjs.org/he/download/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+highcharts@^6.0.0, highcharts@^6.0.4:
+  version "6.0.4"
+  resolved "http://r.cnpmjs.org/highcharts/download/highcharts-6.0.4.tgz#bb6956de2fbe24fa4b6141be7ceadc052ca2abf9"
+
 history@^4.7.2:
   version "4.7.2"
   resolved "http://r.cnpmjs.org/history/download/history-4.7.2.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
@@ -3373,7 +3381,7 @@ ignore@^3.3.3:
   version "3.3.7"
   resolved "http://r.cnpmjs.org/ignore/download/ignore-3.3.7.tgz#612289bfb3c220e186a58118618d5be8c1bab021"
 
-immutable@^3.7.4:
+immutable@^3.7.4, immutable@^3.8.2:
   version "3.8.2"
   resolved "http://r.cnpmjs.org/immutable/download/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
 
@@ -3974,6 +3982,10 @@ jest@20.0.4:
   resolved "http://r.cnpmjs.org/jest/download/jest-20.0.4.tgz#3dd260c2989d6dad678b1e9cc4d91944f6d602ac"
   dependencies:
     jest-cli "^20.0.4"
+
+jquery@^3.2.1:
+  version "3.2.1"
+  resolved "http://r.cnpmjs.org/jquery/download/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
 js-base64@^2.1.9:
   version "2.4.0"
@@ -5922,6 +5934,12 @@ react-dom@^16.2.0:
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "http://r.cnpmjs.org/react-error-overlay/download/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
+
+react-highcharts@^15.0.0:
+  version "15.0.0"
+  resolved "http://r.cnpmjs.org/react-highcharts/download/react-highcharts-15.0.0.tgz#b3eea96ad6a7f04c3e70827a34e9b1b47d88a2bb"
+  dependencies:
+    highcharts "^6.0.0"
 
 react-lazy-load@^3.0.12:
   version "3.0.13"
