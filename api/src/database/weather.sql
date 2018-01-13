@@ -26,6 +26,9 @@ CREATE TABLE `result` (
   PRIMARY KEY (`city_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+SET GLOBAL event_scheduler = 1;
+
 -- ----------------------------
 -- Records of result
 -- ----------------------------
