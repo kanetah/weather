@@ -1,6 +1,5 @@
 package top.kanetah.weather.api.util
 
-
 import java.util.Calendar
 
 object TimeUtil {

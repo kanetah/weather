@@ -1,11 +1,7 @@
 package top.kanetah.weather.api.util
 
-import jdk.nashorn.internal.runtime.logging.Logger
-import org.apache.http.HttpResponse
 import org.apache.http.util.EntityUtils
-import top.kanetah.weather.api.controller.TestController
 import top.kanetah.weather.api.entity.Result
-
 import java.sql.Timestamp
 import java.util.HashMap
 
@@ -18,9 +14,8 @@ object WeatherAPIUti {
      * @param cityName 城市名
      * @return 构造完的result
      */
-    fun getAPIResult(cityName: String): Result? {
-
-        val weatherInfo = getAPIInfo(cityName) ?: return null
+    fun getAPIResult(cityName: String): Result {
+        val weatherInfo = getAPIInfo(cityName) ?: throw NullPointerException()
         val outTime = Timestamp(TimeUtil.nextHourMillis)
         val result = Result()
         result.cityName = cityName
@@ -28,7 +23,6 @@ object WeatherAPIUti {
         result.weatherInfo = weatherInfo
         return result
     }
-
 
     private fun getAPIInfo(cityName: String): String? {
 
@@ -41,23 +35,19 @@ object WeatherAPIUti {
         val querys = HashMap<String, String>()
         querys.put("city", cityName)
 
-
-            /**
-             * 重要提示如下:
-             * HttpUtils请从
-             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
-             * 下载
-             *
-             * 相应的依赖请参照
-             * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
-             */
-            val response = HttpUtils.doGet(host, path, method, headers, querys)
-            val jsonInfo = EntityUtils.toString(response.entity)
-            println(response.entity)
-            println("json   $jsonInfo")
-            return jsonInfo
-
-
+        /**
+         * 重要提示如下:
+         * HttpUtils请从
+         * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
+         * 下载
+         *
+         * 相应的依赖请参照
+         * https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
+         */
+        val response = HttpUtils.doGet(host, path, method, headers, querys)
+        val jsonInfo = EntityUtils.toString(response.entity)
+        println(response.entity)
+        println("json   $jsonInfo")
+        return jsonInfo
     }
-
 }

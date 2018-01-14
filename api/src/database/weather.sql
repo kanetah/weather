@@ -12,6 +12,7 @@ File Encoding         : 65001
 
 Date: 2018-01-11 20:47:21
 */
+use weather;
 
 SET FOREIGN_KEY_CHECKS=0;
 

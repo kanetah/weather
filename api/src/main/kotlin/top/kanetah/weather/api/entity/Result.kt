@@ -6,7 +6,7 @@ import java.sql.Timestamp
 
 @Entity
 @Table(name = "result")
-class Result : Serializable {
+open class Result : Serializable {
     @get:Id
     @get:Column(name = "city_name", nullable = false, length = 255)
     var cityName: String? = null
@@ -17,15 +17,15 @@ class Result : Serializable {
     @get:Column(name = "outtime", nullable = false)
     var outtime: Timestamp? = null
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
 
-        val result = o as Result?
+        val result = other as Result?
 
         if (if (cityName != null) cityName != result!!.cityName else result!!.cityName != null) return false
         if (if (weatherInfo != null) weatherInfo != result.weatherInfo else result.weatherInfo != null) return false
-        return if (if (outtime != null) !outtime!!.equals(result.outtime) else result.outtime != null) false else true
+        return !if (outtime != null) !outtime!!.equals(result.outtime) else result.outtime != null
 
     }
 

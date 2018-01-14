@@ -1,11 +1,7 @@
 package top.kanetah.weather.api.controller
 
 import org.apache.log4j.Logger
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
-import javax.websocket.server.PathParam
+import org.springframework.web.bind.annotation.*
 
 /**
  * created by kane on 2018/1/10
@@ -35,7 +31,7 @@ class TestController {
 
     @RequestMapping(value = ["/{id}"], method = [RequestMethod.DELETE])
     fun delete(
-            @PathParam("id") id: String
+            @PathVariable("id") id: String
     ) {
         logger.info("delete: /test by id $id")
     }
@@ -49,7 +45,7 @@ class TestController {
 
     @RequestMapping(value = ["/{id}"], method = [RequestMethod.GET])
     fun find(
-            @PathParam("id") id: String
+            @PathVariable("id") id: String
     ) {
         logger.info("find: /test by id $id")
     }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TweenOne from 'rc-tween-one';
+import Q from 'jquery';
 
 export default class CityWeather extends Component {
 
@@ -13,6 +14,7 @@ export default class CityWeather extends Component {
         backgroundColor: "transparent",
         opacity: 0,
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
     };
@@ -29,6 +31,7 @@ export default class CityWeather extends Component {
             moment: null,
             paused: true,
             reverse: false,
+            weather: null, //天气信息
         };
     }
 
@@ -42,7 +45,16 @@ export default class CityWeather extends Component {
                     reverse: false,
                     moment: null,
                 });
-            }
+                Q.get(`http://${document.domain}/weather/${nextProps.city}`, data => {
+                    this.setState({
+                        weather: JSON.parse(data)
+                    });
+                    console.log(JSON.parse(data));
+                });
+            } else
+                this.setState({
+                    weather: null
+                });
         }
         return true;
     };
@@ -68,7 +80,8 @@ export default class CityWeather extends Component {
                 moment={this.state.moment}
                 onClick={this.drillUp}
             >
-                {`${this.props.city}`}
+                <p>{`${this.props.city}`}</p>
+                <p>{JSON.stringify(this.state.weather)}</p>
             </TweenOne>
         )
     }
