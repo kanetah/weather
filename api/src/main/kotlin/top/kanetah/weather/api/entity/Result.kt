@@ -19,28 +19,23 @@ open class Result : Serializable {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other == null || javaClass != other.javaClass) return false
+        if (other !is Result) return false
 
-        val result = other as Result?
+        if (cityName != other.cityName) return false
+        if (weatherInfo != other.weatherInfo) return false
+        if (outtime != other.outtime) return false
 
-        if (if (cityName != null) cityName != result!!.cityName else result!!.cityName != null) return false
-        if (if (weatherInfo != null) weatherInfo != result.weatherInfo else result.weatherInfo != null) return false
-        return !if (outtime != null) !outtime!!.equals(result.outtime) else result.outtime != null
-
+        return true
     }
 
     override fun hashCode(): Int {
-        var result = if (cityName != null) cityName!!.hashCode() else 0
-        result = 31 * result + if (weatherInfo != null) weatherInfo!!.hashCode() else 0
-        result = 31 * result + if (outtime != null) outtime!!.hashCode() else 0
+        var result = cityName?.hashCode() ?: 0
+        result = 31 * result + (weatherInfo?.hashCode() ?: 0)
+        result = 31 * result + (outtime?.hashCode() ?: 0)
         return result
     }
 
     override fun toString(): String {
-        return "Result{" +
-                "cityName='" + cityName + '\'' +
-                ", weatherInfo='" + weatherInfo + '\'' +
-                ", outtime=" + outtime +
-                '}'
+        return "Result(cityName=$cityName, weatherInfo=$weatherInfo, outtime=$outtime)"
     }
 }

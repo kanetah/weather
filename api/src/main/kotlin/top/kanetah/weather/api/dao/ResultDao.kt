@@ -12,7 +12,7 @@ import javax.persistence.Table
 @Qualifier("ResultDao")
 interface ResultDao : CrudRepository<Result, String> {
 
-    override fun findOne(cityName: String): Result
+    override fun findOne(cityName: String): Result?
 
     override fun <S : Result> save(entity: S): S
 }
