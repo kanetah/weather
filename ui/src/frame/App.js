@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../style/App.css';
+import Background from '../pages/Background';
 import Map from "../pages/Map";
 import CityWeather from "../pages/CityWeather";
 
@@ -30,14 +30,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App"
-                 style={{
-                     width: "100%",
-                     height: "100%",
-                     zIndex: 0,
-                     backgroundColor: "gray",
-                 }}
-            >
+            <div className="App">
+                <Background/>
                 <Map setCity={this.setCity} setDrillUp={this.setDrillUp}/>
                 <CityWeather city={this.state.city} drillUp={this.state.drillUp}/>
             </div>

@@ -55,7 +55,7 @@ export default class Map extends Component {
                             if (e.point.drilldown) {
                                 let pointName = e.point.properties.fullname;
                                 if (!e.point.toWeatherPage) {
-                                    than.map.showLoading();
+                                    than.map.showLoading("加载中...");
                                     // 获取二级行政地区数据并更新图表
                                     $.getJSON(geochina + e.point.drilldown + '.json&callback=?', data => {
                                         data = Highcharts.geojson(data);
