@@ -15,13 +15,17 @@ object WeatherAPIUti {
      * @return 构造完的result
      */
     fun getAPIResult(cityName: String): Result {
-        val weatherInfo = getAPIInfo(cityName) ?: throw NullPointerException()
+        val weatherInfo = getCityName(cityName) ?: throw NullPointerException()
         val outTime = Timestamp(TimeUtil.nextHourMillis)
         val result = Result()
         result.cityName = cityName
         result.outtime = outTime
         result.weatherInfo = weatherInfo
         return result
+    }
+
+    private fun getCityName(cityName: String):String? {
+            return getAPIInfo(cityName)?: getCityName(cityName.substring(0,cityName.length-1))
     }
 
     private fun getAPIInfo(cityName: String): String? {
@@ -48,6 +52,8 @@ object WeatherAPIUti {
         val jsonInfo = EntityUtils.toString(response.entity)
         println(response.entity)
         println("json   $jsonInfo")
+        if (jsonInfo =="{\"status\":\"202\",\"msg\":\"城市不存在\",\"result\":\"\"}")
+            return null
         return jsonInfo
     }
 }
