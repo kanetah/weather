@@ -49,7 +49,7 @@ export default class Map extends Component {
                     backgroundColor: 'transparent',
                     margin: [50, 0, 10, 0],
                     events: {
-                        drilldown: function(e) {
+                        drilldown: function (e) {
                             this.tooltip.hide();
                             // 异步下钻
                             if (e.point.drilldown) {
