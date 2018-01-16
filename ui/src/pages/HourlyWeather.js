@@ -12,11 +12,10 @@ export default class HourlyWeather extends Component {
             temp.push(parseInt(value.temp));
             weather.push(value.weather);
         });
-        console.log(JSON.stringify(weather));
-        let chart = Highcharts.chart('container', {
+        let chart = Highcharts.chart('hourly', {
             chart: {
                 type: 'line',
-                backgroundColor:'transparent'
+                backgroundColor: 'transparent'
             },
             credits: {
                 enabled: false
@@ -39,8 +38,11 @@ export default class HourlyWeather extends Component {
                 style: {
                     fontSize: "16px"
                 },
-                pointFormatter: function () {
-                    return this.y + '℃ | ' + weather[this.index];
+                formatter: function () {
+                    const index = this.point.index;
+                    return '<span style="font-size: 12px">' + this.x + '</span><br/>' +
+                        '<span>' + weather[index] + ' | ' + this.y + '℃</span>';
+
                 }
             },
             plotOptions: {
@@ -62,9 +64,9 @@ export default class HourlyWeather extends Component {
     render() {
         return (
             <div
-                id={'container'}
+                id={'hourly'}
                 style={{
-                    width: 1200,
+                    width: 1080,
                     height: 200
                 }}>
             </div>

@@ -4,6 +4,7 @@ import Q from 'jquery';
 import NowWeather from "./NowWeather";
 import {Button} from 'antd'
 import HourlyWeather from "./HourlyWeather";
+import DailyWeather from "./DailyWeather";
 
 
 export default class CityWeather extends Component {
@@ -14,7 +15,6 @@ export default class CityWeather extends Component {
         top: 50,
         zIndex: -2,
         width: "100%",
-        height: "100%",
         backgroundColor: "transparent",
         opacity: 0,
         display: "flex",
@@ -102,6 +102,7 @@ export default class CityWeather extends Component {
                                 updatetime={this.state.weather.result.updatetime}
                             />
                             <HourlyWeather hourly={this.state.weather.result.hourly}/>
+                            <DailyWeather daily={this.state.weather.result.daily}/>
                         </div>
                         : null
                 }
