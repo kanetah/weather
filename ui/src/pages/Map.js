@@ -106,9 +106,9 @@ export default class Map extends Component {
                     useHTML: true,
                     headerFormat: '<table><tr><td>{point.name}</td></tr>',
                     pointFormat: `
-<tr><td>全称</td><td>{point.properties.fullname}</td></tr>
-<tr><td>行政编号</td><td>{point.properties.areacode}</td></tr>
-<tr><td>经纬度</td><td>{point.properties.longitude},{point.properties.latitude}</td></tr>`,
+                    <tr><td>全称</td><td>{point.properties.fullname}</td></tr>
+                    <tr><td>行政编号</td><td>{point.properties.areacode}</td></tr>
+                    <tr><td>经纬度</td><td>{point.properties.longitude},{point.properties.latitude}</td></tr>`,
                     footerFormat: '</table>'
                 },
                 series: [{

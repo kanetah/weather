@@ -3,6 +3,7 @@ import TweenOne from 'rc-tween-one';
 import Q from 'jquery';
 import NowWeather from "./NowWeather";
 import {Button} from 'antd'
+import HourlyWeather from "./HourlyWeather";
 
 
 export default class CityWeather extends Component {
@@ -100,6 +101,7 @@ export default class CityWeather extends Component {
                                 windspeed={this.state.weather.result.windspeed}
                                 updatetime={this.state.weather.result.updatetime}
                             />
+                            <HourlyWeather hourly={this.state.weather.result.hourly}/>
                         </div>
                         : null
                 }
