@@ -13,9 +13,7 @@ class RequestController(@Autowired val resultDao: ResultDao) {
     internal fun getWeatherInfo(
             @PathVariable city: String
     ): String? =
-            (resultDao.findOne(city) ?: WeatherAPIUti.let {
-                it.getAPIResult(city).let {
-                    resultDao.save(it)
-                }
+            (resultDao.findOne(city) ?: WeatherAPIUti.getAPIResult(city).let {
+                resultDao.save(it)
             }).weatherInfo
 }

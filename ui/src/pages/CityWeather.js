@@ -53,10 +53,11 @@ export default class CityWeather extends Component {
                     moment: null,
                 });
                 Q.get(`http://${document.domain}/weather/${nextProps.city}`, data => {
+                    let weather = data.length > 0 ? JSON.parse(data) : void(0);
                     this.setState({
-                        weather: JSON.parse(data)
+                        weather: weather
                     });
-                    console.log(JSON.parse(data));
+                    console.log(weather);
                 });
             } else
                 this.setState({
@@ -77,6 +78,64 @@ export default class CityWeather extends Component {
         }, this.animation.duration);
     };
 
+    showWeather = () => {
+        switch (this.state.weather) {
+            case null:
+                return null;
+            case void(0):
+                return (
+                    <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        right: '50%'
+                    }}>
+                        <h3>请求过于频繁，请稍后再试</h3>
+                    </div>
+                );
+            default:
+                return (
+                    <div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'flex-end',
+                                marginTop: 20,
+                                marginBottom: 40
+                            }}
+                        >
+                            <NowWeather
+                                city={this.props.city}
+                                date={this.state.weather.result.date}
+                                week={this.state.weather.result.week}
+                                temp={this.state.weather.result.temp}
+                                weather={this.state.weather.result.weather}
+                                temphigh={this.state.weather.result.temphigh}
+                                templow={this.state.weather.result.templow}
+                                humidity={this.state.weather.result.humidity}
+                                pressure={this.state.weather.result.pressure}
+                                winddirect={this.state.weather.result.winddirect}
+                                windpower={this.state.weather.result.windpower}
+                                windspeed={this.state.weather.result.windspeed}
+                                updatetime={this.state.weather.result.updatetime}
+                            />
+                            <DailyWeather daily={this.state.weather.result.daily}/>
+                        </div>
+                        <HourlyWeather hourly={this.state.weather.result.hourly}/>
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'flex-start',
+                            marginTop: 20
+                        }}>
+                            <AirQuality aqi={this.state.weather.result.aqi}/>
+                            <LifeIndex index={this.state.weather.result.index}/>
+                        </div>
+                    </div>
+                );
+        }
+    };
+
     render() {
         return (
             <TweenOne
@@ -86,48 +145,7 @@ export default class CityWeather extends Component {
                 reverse={this.state.reverse}
                 moment={this.state.moment}
             >
-                {
-                    this.state.weather ?
-                        <div>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'flex-end',
-                                    marginTop: 20,
-                                    marginBottom: 40
-                                }}
-                            >
-                                <NowWeather
-                                    city={this.props.city}
-                                    date={this.state.weather.result.date}
-                                    week={this.state.weather.result.week}
-                                    temp={this.state.weather.result.temp}
-                                    weather={this.state.weather.result.weather}
-                                    temphigh={this.state.weather.result.temphigh}
-                                    templow={this.state.weather.result.templow}
-                                    humidity={this.state.weather.result.humidity}
-                                    pressure={this.state.weather.result.pressure}
-                                    winddirect={this.state.weather.result.winddirect}
-                                    windpower={this.state.weather.result.windpower}
-                                    windspeed={this.state.weather.result.windspeed}
-                                    updatetime={this.state.weather.result.updatetime}
-                                />
-                                <DailyWeather daily={this.state.weather.result.daily}/>
-                            </div>
-                            <HourlyWeather hourly={this.state.weather.result.hourly}/>
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'flex-start',
-                                marginTop: 20
-                            }}>
-                                <AirQuality aqi={this.state.weather.result.aqi}/>
-                                <LifeIndex index={this.state.weather.result.index}/>
-                            </div>
-                        </div>
-                        : null
-                }
+                {this.showWeather()}
                 <Button
                     type="danger"
                     ghost

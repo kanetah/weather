@@ -8,13 +8,13 @@ import java.sql.Timestamp
 @Table(name = "result")
 open class Result : Serializable {
     @get:Id
-    @get:Column(name = "city_name", nullable = false, length = 255)
+    @get:Column(name = "city_name", nullable = true, length = 255)
     var cityName: String? = null
     @get:Basic
-    @get:Column(name = "weather_info", nullable = false, length = 9999)
+    @get:Column(name = "weather_info", nullable = true, length = 9999)
     var weatherInfo: String? = null
     @get:Basic
-    @get:Column(name = "outtime", nullable = false)
+    @get:Column(name = "outtime", nullable = true)
     var outtime: Timestamp? = null
 
     override fun equals(other: Any?): Boolean {
