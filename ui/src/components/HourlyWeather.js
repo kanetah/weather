@@ -40,8 +40,8 @@ export default class HourlyWeather extends Component {
                 },
                 formatter: function () {
                     const index = this.point.index;
-                    return '<span style="font-size: 12px">' + this.x + '</span><br/>' +
-                        '<span>' + weather[index] + ' | ' + this.y + '℃</span>';
+                    return `<span style="font-size: 14px">${this.x}</span><br/>` +
+                        `<span>${weather[index]} | ${this.y}℃</span>`;
 
                 }
             },
@@ -66,8 +66,9 @@ export default class HourlyWeather extends Component {
             <div
                 id={'hourly'}
                 style={{
-                    width: 1080,
-                    height: 200
+                    width: 1200,
+                    height: 200,
+                    margin: '0 auto'
                 }}>
             </div>
         )

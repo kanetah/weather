@@ -48,14 +48,13 @@ export default class DailyWeather extends Component {
                     fontSize: "16px"
                 },
                 formatter: function () {
-                    console.log(this);
                     const index = this.points[0].point.index;
-                    return '<span style="font-size: 12px">' + this.x + ' | ' + week[index] + '</span><br/>' +
-                        '<span style="font-size: 20px;">' + weather[index] + '</span><br/>' +
-                        '<span>最高气温:' + this.points[0].y + '℃</span><br/>' +
-                        '<span>最低气温:' + this.points[1].y + '℃</span><br/>' +
-                        '<span>日出:' + sunrise[index] + '</span><br/>' +
-                        '<span>日落:' + sunset[index] + '℃</span><br/>';
+                    return `<span style="font-size: 14px">${this.x} | ${week[index]}</span><br/>` +
+                        `<span style="font-size: 24px">${weather[index]}</span><br/>` +
+                        `<span>最高气温:${this.points[0].y}℃</span><br/>` +
+                        `<span>最低气温: ${this.points[1].y}℃</span><br/>` +
+                        `<span>日出:${sunrise[index]}</span><br/>` +
+                        `<span>日落:${sunset[index]}</span><br/>`;
                 }
             },
             plotOptions: {
@@ -81,8 +80,7 @@ export default class DailyWeather extends Component {
                 id={'daily'}
                 style={{
                     width: 700,
-                    height: 300,
-                    margin: '0 auto'
+                    height: 300
                 }}>
             </div>
         )

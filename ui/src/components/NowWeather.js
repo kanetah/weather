@@ -186,7 +186,7 @@ export default class NowWeather extends Component {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginBottom: 20
+                marginRight: 40
             }}>
                 <h1>{this.props.city}</h1>
                 <div>
@@ -203,7 +203,6 @@ export default class NowWeather extends Component {
                     }}>
                         {this.switchWeather(this.props.weather)}
                     </span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style={{
                         fontSize: 100,
                         fontWeight: 600
@@ -216,7 +215,7 @@ export default class NowWeather extends Component {
                     </span>
                 </div>
                 <div style={{
-                    fontSize: 25
+                    fontSize: 30
                 }}>
                     {this.props.weather}
                 </div>
@@ -225,7 +224,7 @@ export default class NowWeather extends Component {
                 }}>
                     <span>最高气温&nbsp;&nbsp;{this.props.temphigh}℃</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span>最高气温&nbsp;&nbsp;{this.props.templow}℃</span>
+                    <span>最低气温&nbsp;&nbsp;{this.props.templow}℃</span>
                 </div>
                 <div style={{
                     marginTop: 10
