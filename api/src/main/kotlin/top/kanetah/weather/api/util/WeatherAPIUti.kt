@@ -24,9 +24,8 @@ object WeatherAPIUti {
         return result
     }
 
-    private fun getCityName(cityName: String):String? {
-            return getAPIInfo(cityName)?: getCityName(cityName.substring(0,cityName.length-1))
-    }
+    private fun getCityName(cityName: String): String? =
+            getAPIInfo(cityName) ?: getCityName(cityName.substring(0, cityName.length - 1))
 
     private fun getAPIInfo(cityName: String): String? {
 
@@ -35,7 +34,7 @@ object WeatherAPIUti {
         val method = "GET"
         val appcode = "e91a5396a2ea447784cdae0644eea635"
         val headers = HashMap<String, String>()
-        headers.put("Authorization", "APPCODE " + appcode)
+        headers.put("Authorization", "APPCODE $appcode")
         val querys = HashMap<String, String>()
         querys.put("city", cityName)
 
@@ -50,10 +49,9 @@ object WeatherAPIUti {
          */
         val response = HttpUtils.doGet(host, path, method, headers, querys)
         val jsonInfo = EntityUtils.toString(response.entity)
-        println(response.entity)
-        println("json   $jsonInfo")
-        if (jsonInfo =="{\"status\":\"202\",\"msg\":\"城市不存在\",\"result\":\"\"}")
+        if (jsonInfo == "{\"status\":\"202\",\"msg\":\"城市不存在\",\"result\":\"\"}")
             return null
+        println("json   $jsonInfo")
         return jsonInfo
     }
 }
