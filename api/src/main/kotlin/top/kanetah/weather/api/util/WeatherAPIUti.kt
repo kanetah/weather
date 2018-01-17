@@ -15,7 +15,7 @@ object WeatherAPIUti {
      * @return 构造完的result
      */
     fun getAPIResult(cityName: String): Result {
-        val weatherInfo = getCityName(cityName) ?: throw NullPointerException()
+        val weatherInfo = getCityName(cityName) ?: "{\"status\":\"202\",\"msg\":\"城市不存在\",\"result\":\"\"}"
         val outTime = Timestamp(TimeUtil.nextHourMillis)
         val result = Result()
         result.cityName = cityName
