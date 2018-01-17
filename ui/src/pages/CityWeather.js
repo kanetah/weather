@@ -6,7 +6,6 @@ import {Button} from 'antd'
 import HourlyWeather from "../components/HourlyWeather";
 import DailyWeather from "../components/DailyWeather";
 
-
 export default class CityWeather extends Component {
 
     styleObj = {
@@ -22,7 +21,7 @@ export default class CityWeather extends Component {
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "center",
-        overflow: "scroll"
+        overflow: "auto"
     };
 
     constructor(props) {
@@ -128,7 +127,7 @@ export default class CityWeather extends Component {
                         top: 40,
                         right: 80
                     }}
-                >drillUp</Button>
+                >返回</Button>
             </TweenOne>
         )
     }

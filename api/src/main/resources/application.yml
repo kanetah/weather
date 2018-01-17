@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/weather
     username: root
-    password: 1234
+    password: nicopoiduang
     jpa:
         hibernate:
           ddl-auto: update

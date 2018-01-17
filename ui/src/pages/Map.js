@@ -91,13 +91,13 @@ export default class Map extends Component {
                             }
                         },
                         drillup: () =>
-                            than.map.setTitle({text: '天气预报'}),
+                            than.map.setTitle({text: '全国天气预报'}),
                         click: e =>
                             !than.map.series[0].drilldownLevel ? than.map.drillUp() : null,
                     },
                 },
                 title: {
-                    text: '天气预报'
+                    text: '全国天气预报'
                 },
                 mapNavigation: {
                     enabled: true,

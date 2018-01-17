@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Background from '../pages/Background';
+import Background from '../pages/Background';
 import Map from "../pages/Map";
 import CityWeather from "../pages/CityWeather";
 
@@ -31,7 +31,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {/*<Background/>*/}
+                <Background/>
                 <Map setCity={this.setCity} setDrillUp={this.setDrillUp}/>
                 <CityWeather city={this.state.city} drillUp={this.state.drillUp}/>
             </div>

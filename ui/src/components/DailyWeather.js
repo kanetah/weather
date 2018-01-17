@@ -52,9 +52,9 @@ export default class DailyWeather extends Component {
                     return '<span style="font-size: 12px">' + this.x + ' | ' + week[index] + '</span><br/>' +
                         '<span style="font-size: 20px;">' + weather[index] + '</span><br/>' +
                         '<span>最高气温:' + this.points[0].y + '℃</span><br/>' +
-                        '<span>最低气温:' + this.points[1].y + '℃</span><br/>' +
+                        `<span>最低气温: ${this.points[1].y}℃</span><br/>` +
                         '<span>日出:' + sunrise[index] + '</span><br/>' +
-                        '<span>日落:' + sunset[index] + '℃</span><br/>';
+                        '<span>日落:' + sunset[index] + '</span><br/>';
                 }
             },
             plotOptions: {
