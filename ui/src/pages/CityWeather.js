@@ -5,6 +5,8 @@ import NowWeather from "../components/NowWeather";
 import {Button} from 'antd'
 import HourlyWeather from "../components/HourlyWeather";
 import DailyWeather from "../components/DailyWeather";
+import AirQuality from "../components/AirQuality";
+import LifeIndex from "../components/LifeIndex";
 
 export default class CityWeather extends Component {
 
@@ -93,7 +95,7 @@ export default class CityWeather extends Component {
                                     justifyContent: 'center',
                                     alignItems: 'flex-end',
                                     marginTop: 20,
-                                    marginBottom: 20
+                                    marginBottom: 40
                                 }}
                             >
                                 <NowWeather
@@ -114,6 +116,15 @@ export default class CityWeather extends Component {
                                 <DailyWeather daily={this.state.weather.result.daily}/>
                             </div>
                             <HourlyWeather hourly={this.state.weather.result.hourly}/>
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'flex-start',
+                                marginTop: 20
+                            }}>
+                                <AirQuality aqi={this.state.weather.result.aqi}/>
+                                <LifeIndex index={this.state.weather.result.index}/>
+                            </div>
                         </div>
                         : null
                 }

@@ -203,7 +203,6 @@ export default class NowWeather extends Component {
                     }}>
                         {this.switchWeather(this.props.weather)}
                     </span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style={{
                         fontSize: 100,
                         fontWeight: 600
