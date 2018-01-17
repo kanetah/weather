@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import TweenOne from 'rc-tween-one';
 import Q from 'jquery';
+import NowWeather from "./NowWeather";
+import {Button} from 'antd'
+import HourlyWeather from "./HourlyWeather";
+import DailyWeather from "./DailyWeather";
+
 
 export default class CityWeather extends Component {
 
@@ -10,12 +15,11 @@ export default class CityWeather extends Component {
         top: 50,
         zIndex: -2,
         width: "100%",
-        height: "100%",
         backgroundColor: "transparent",
         opacity: 0,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
     };
 
@@ -78,10 +82,31 @@ export default class CityWeather extends Component {
                 paused={this.state.paused}
                 reverse={this.state.reverse}
                 moment={this.state.moment}
-                onClick={this.drillUp}
             >
-                <p>{`${this.props.city}`}</p>
-                <p>{JSON.stringify(this.state.weather)}</p>
+                {
+                    this.state.weather ?
+                        <div>
+                            <NowWeather
+                                city={this.props.city}
+                                date={this.state.weather.result.date}
+                                week={this.state.weather.result.week}
+                                temp={this.state.weather.result.temp}
+                                weather={this.state.weather.result.weather}
+                                temphigh={this.state.weather.result.temphigh}
+                                templow={this.state.weather.result.templow}
+                                humidity={this.state.weather.result.humidity}
+                                pressure={this.state.weather.result.pressure}
+                                winddirect={this.state.weather.result.winddirect}
+                                windpower={this.state.weather.result.windpower}
+                                windspeed={this.state.weather.result.windspeed}
+                                updatetime={this.state.weather.result.updatetime}
+                            />
+                            <HourlyWeather hourly={this.state.weather.result.hourly}/>
+                            <DailyWeather daily={this.state.weather.result.daily}/>
+                        </div>
+                        : null
+                }
+                <Button type="danger" ghost onClick={this.drillUp}>drillUp</Button>
             </TweenOne>
         )
     }
