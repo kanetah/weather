@@ -29,6 +29,10 @@ CREATE TABLE `result` (
 
 
 SET GLOBAL event_scheduler = 1;
+-- 虽然这里用set global event_scheduler = on语句开启了事件，但是每次重启电脑。
+-- 或重启mysql服务后，会发现，事件自动关闭（event_scheduler=OFF），
+-- 所以想让事件一直保持开启，最好修改配置文件，让mysql服务启动的时候开启时间，
+-- 只需要在my.ini配置文件的[mysqld]部分加上event_scheduler=ON 即可
 
 -- ----------------------------
 -- Records of result
