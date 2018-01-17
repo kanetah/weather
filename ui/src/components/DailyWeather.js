@@ -43,7 +43,7 @@ export default class DailyWeather extends Component {
             },
             tooltip: {
                 shared: true,
-                borderRadius: 10,
+                borderRadius: 15,
                 style: {
                     fontSize: "16px"
                 },

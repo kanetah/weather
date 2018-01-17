@@ -34,7 +34,7 @@ export default class HourlyWeather extends Component {
                 labels: false
             },
             tooltip: {
-                borderRadius: 10,
+                borderRadius: 15,
                 style: {
                     fontSize: "16px"
                 },

@@ -119,7 +119,7 @@ export default class CityWeather extends Component {
                             <div style={{
                                 display: 'flex',
                                 justifyContent: 'center',
-                                alignItems: 'center',
+                                alignItems: 'flex-start',
                                 marginTop: 20
                             }}>
                                 <AirQuality aqi={this.state.weather.result.aqi}/>

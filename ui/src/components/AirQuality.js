@@ -5,13 +5,15 @@ export default class AirQuality extends Component {
         const aqi = this.props.aqi;
         return (
             <div style={{
-                height: 240,
+                height: 300,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
                 alignItems: 'center',
                 marginRight: 40
             }}>
+                <h3 style={{marginBottom: 0}}>空气质量</h3>
+                <div>发布时间：{aqi.timepoint}</div>
                 <div>AQI指数：{aqi.aqi}</div>
                 <div>等级：{aqi.aqiinfo.level}</div>
                 <div>{aqi.aqiinfo.affect}</div>
