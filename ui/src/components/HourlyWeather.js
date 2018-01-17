@@ -66,7 +66,7 @@ export default class HourlyWeather extends Component {
             <div
                 id={'hourly'}
                 style={{
-                    width: 1080,
+                    width: 1020,
                     height: 200
                 }}>
             </div>

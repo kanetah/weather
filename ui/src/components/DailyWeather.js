@@ -48,7 +48,6 @@ export default class DailyWeather extends Component {
                     fontSize: "16px"
                 },
                 formatter: function () {
-                    console.log(this);
                     const index = this.points[0].point.index;
                     return '<span style="font-size: 12px">' + this.x + ' | ' + week[index] + '</span><br/>' +
                         '<span style="font-size: 20px;">' + weather[index] + '</span><br/>' +
