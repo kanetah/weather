@@ -14,8 +14,6 @@ class RequestController(@Autowired val resultDao: ResultDao) {
             @PathVariable city: String
     ): String? =
             (resultDao.findOne(city) ?: WeatherAPIUti.getAPIResult(city).let {
-                if (!it.weatherInfo.isNullOrEmpty())
-                    resultDao.save(it)
-                else null
+                if (!it.weatherInfo.isNullOrEmpty()) resultDao.save(it) else null
             })?.weatherInfo
 }

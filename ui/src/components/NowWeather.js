@@ -198,11 +198,12 @@ export default class NowWeather extends Component {
                     display: 'flex',
                     justifyContent: 'center'
                 }}>
-                    <span style={{
-                        alignSelf: 'center'
+                    <div style={{
+                        alignSelf: 'center',
+                        marginRight: 15,
                     }}>
                         {this.switchWeather(this.props.weather)}
-                    </span>
+                    </div>
                     <span style={{
                         fontSize: 100,
                         fontWeight: 600

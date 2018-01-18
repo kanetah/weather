@@ -10,7 +10,7 @@ export default class AirQuality extends Component {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                marginRight: 40
+                marginRight: 40,
             }}>
                 <h3 style={{marginBottom: 0}}>空气质量</h3>
                 <div>发布时间：{aqi.timepoint}</div>
@@ -21,13 +21,13 @@ export default class AirQuality extends Component {
                 <div>首要污染物：{aqi.primarypollutant}</div>
                 <div style={{
                     display: 'flex',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                 }}>
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        marginRight: 40
+                        marginRight: 40,
                     }}>
                         <span>PM2.5指数：{aqi.ipm2_5}</span>
                         <span>二氧化硫指数：{aqi.iso2}</span>
@@ -36,7 +36,7 @@ export default class AirQuality extends Component {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
                     }}>
                         <span>PM10指数：{aqi.ipm10}</span>
                         <span>二氧化氮指数：{aqi.ino2}</span>

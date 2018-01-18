@@ -80,7 +80,7 @@ export default class DailyWeather extends Component {
                 id={'daily'}
                 style={{
                     width: 700,
-                    height: 300
+                    height: 300,
                 }}>
             </div>
         )

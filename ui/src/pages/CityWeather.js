@@ -23,7 +23,7 @@ export default class CityWeather extends Component {
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "center",
-        overflow: "auto"
+        overflow: "auto",
     };
 
     constructor(props) {
@@ -85,9 +85,8 @@ export default class CityWeather extends Component {
             case void(0):
                 return (
                     <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        right: '50%'
+                        margin: 'auto',
+                        fontWeight: 600,
                     }}>
                         <h3>请求过于频繁，请稍后再试</h3>
                     </div>
@@ -101,7 +100,7 @@ export default class CityWeather extends Component {
                                 justifyContent: 'center',
                                 alignItems: 'flex-end',
                                 marginTop: 20,
-                                marginBottom: 40
+                                marginBottom: 40,
                             }}
                         >
                             <NowWeather
@@ -126,7 +125,8 @@ export default class CityWeather extends Component {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'flex-start',
-                            marginTop: 20
+                            marginTop: 20,
+                            marginBottom: 30,
                         }}>
                             <AirQuality aqi={this.state.weather.result.aqi}/>
                             <LifeIndex index={this.state.weather.result.index}/>
@@ -154,7 +154,7 @@ export default class CityWeather extends Component {
                     style={{
                         position: 'absolute',
                         top: 40,
-                        right: 80
+                        right: 80,
                     }}
                 >返回</Button>
             </TweenOne>

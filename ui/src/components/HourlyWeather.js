@@ -68,7 +68,7 @@ export default class HourlyWeather extends Component {
                 style={{
                     width: 1200,
                     height: 200,
-                    margin: '0 auto'
+                    margin: '0 auto',
                 }}>
             </div>
         )
